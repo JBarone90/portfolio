@@ -19,19 +19,12 @@
   </h1>
   <div class="flex items-center ml2">
     {#each tabs as tab, index}
-      <a href={tab.link} class="dim pointer ml2 mr2 transition duration-200 hover-near-purple">
+      <a
+        href={tab.link}
+        class="dim ml2 mr2 transition duration-200 no-underline"
+      >
         <p class="white">{tab.name}</p>
       </a>
     {/each}
   </div>
-  <a
-    href="https://www.linkedin.com/in/jacopobarone/"
-    target="_blank"
-    class="relative overflow-hidden pa2 br-pill bg-white near-black hover-bg-light-purple"
-  >
-    <div
-      class="absolute top-2 right--100 w-100 h-100 o-20 hover-o-50 z-0"
-    ></div>
-    <h4 class="relative z-1">Get in touch</h4>
-  </a>
 </header>

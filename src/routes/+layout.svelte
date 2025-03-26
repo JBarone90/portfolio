@@ -11,20 +11,27 @@
   }
 </script>
 
-<div class="container relative flex flex-column max-w-6xl mx-auto w-100 text-sm sm:text-base min-h-100vh">
-  <div class="fixed bottom-0 w-100 duration-200 flex pa3 z-10 {y > 0 ? 'opacity-100 cursor-pointer' : 'opacity-0 pointer-events-none'}">
+<div
+  class="relative flex flex-column mw6 mw8-ns center
+ w-100 w-100-l f6-ns f5-l min-vh-100 ph2-ns ph4-l "
+>
+  <div
+    class={"grow dib fixed bottom-0 w-auto flex pa3 z-999 " +
+      (y > 0 ? "o-100 pe-auto" : "o-0 pe-none")}
+  >
     <button
       on:click={goTop}
       aria-label="Go to top"
-      class="ml-auto br-pill bg-black purple ph3 sm:ph4 hover-bg-dark-gray cursor-pointer aspect-square flex items-center justify-center"
+      class="br-pill bg-white near-black ph4 pv2 flex items-center justify-center "
     >
       <i class="fa-solid fa-arrow-up"></i>
     </button>
   </div>
-  <Header y={y} {innerHeight} />
-  <main class="flex-auto">
+  <Header {y} {innerHeight} />
+  <main class="flex-auto w-100">
     <slot />
   </main>
   <Footer />
+  <div class="h3 h4-l"></div>
 </div>
 <svelte:window bind:scrollY={y} bind:innerHeight bind:innerWidth />
