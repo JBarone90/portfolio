@@ -27,19 +27,11 @@ h3,
   }
 }
 
+.RedShadow {
+  box-shadow: 0px 10px 50px #FF725C;
+}
+
+
 .circle {
   stroke: none;
 }
-
-body {
-  /* display: flex;
-  align-items: center;
-  justify-content: flex-start; */
-  /* min-height: 100vh; */
-  /* margin: 0; */
-  overflow: hidden;
-}
-
-/* .box {
-  display: block;
-} */
