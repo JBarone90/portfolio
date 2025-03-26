@@ -12,3 +12,34 @@ h3,
 .poppins {
   font-family: "Poppins", sans-serif;
 }
+
+.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+@supports not (position: sticky) {
+  .sticky {
+    position: fixed;
+    /* Additional fallback positioning if needed */
+  }
+}
+
+.circle {
+  stroke: none;
+}
+
+body {
+  /* display: flex;
+  align-items: center;
+  justify-content: flex-start; */
+  /* min-height: 100vh; */
+  /* margin: 0; */
+  overflow: hidden;
+}
+
+/* .box {
+  display: block;
+} */
