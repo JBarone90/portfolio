@@ -1,24 +1,7 @@
 <script>
   import { gsap } from "gsap";
   import { onMount } from "svelte";
-
-  let stagger = 3;
-  let animation = gsap.timeline({
-    repeat: -1,
-    repeatDelay: 0,
-    defaults: { duration: 0.6, ease: "expo.inOut" },
-  });
-
-  function init() {
-    gsap.set(".rolling-text", { autoAlpha: 1 });
-    animation
-      .from(".rolling-text span", { yPercent: -100, opacity: 0, stagger })
-      .to(".rolling-text span", { yPercent: 100, opacity: 0, stagger }, stagger);
-  }
-
-  onMount(() => {
-    init();
-  });
+  import RollingText from "./RollingText.svelte";
 </script>
 
 <main class="flex flex-column pa4 mt5">
@@ -30,10 +13,10 @@
       <h2 class="f3 f2-ns f1-l fw6 w-100">
         <span class="poppins light-red">Jacopo</span> Barone
         <br />
-        <span class="ph5-ns ph6-l rolling-text">
+        <RollingText stagger={3} class="ph5-ns ph6-l">
           <span class="poppins light-red">Data Scientist</span>
           <span class="poppins light-red">Researcher</span>
-        </span>
+        </RollingText>
       </h2>
       <p class="f6 f5-ns f4-m">
         My <span class="light-red"> favorite tech</span> includes JavaScript (NEXT.JS

@@ -33,16 +33,15 @@ h3,
 
 .rolling-text {
   position: relative;
-  height: 1.2em; /* Fixed height to prevent layout shift */
+  height: 1.2em;
   display: inline-block;
   white-space: nowrap;
+  margin-left: 2.5em; /* Add this to create the offset */
 }
 
-/* Position the spans for animation */
 .rolling-text span {
   position: absolute;
 }
-
 
 .circle {
   stroke: none;
