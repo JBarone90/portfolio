@@ -40,6 +40,7 @@ h3,
 }
 
 .rolling-text span {
+  opacity: 0;
   position: absolute;
 }
 
