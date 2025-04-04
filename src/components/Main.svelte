@@ -1,21 +1,28 @@
 <script>
   import RollingText from "./RollingText.svelte";
   import ProjectGrid from "./ProjectGrid.svelte";
+  import { faGithub } from "@fortawesome/free-brands-svg-icons";
+  import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
 
   const projects = [
     {
       id: 1,
-      name: "Project 1",
+      name: "This page!",
       image: "/images/zima-blue.jpg",
-      description: "This is a brief description of Project 1.",
-      links: ["https://linkto.project1.com", "https://github.com/project1"],
+      abstract: "A modern, responsive portfolio website built with SvelteKit",
+      description:
+        "While it might seem unusual to feature the portfolio itself as a project, it demonstrates my ability to independently design and build a front end from scratch. The site is built with <a class='light-red no-underline dim' href='https://svelte.dev/' target='_blank' rel='noopener noreferrer'>Svelte</a>, styled using <a class='light-red no-underline dim' href='https://tachyons.io/' target='_blank' rel='noopener noreferrer'>Tachyons CSS</a>, and enhanced with a sprinkle of <a class='light-red no-underline dim' href='https://greensock.com/gsap/' target='_blank' rel='noopener noreferrer'>GSAP</a> animations.",
+      readMore: "If you want to see the code, check out my GitHub profile!<br /> I will try to document my learning process on a blog article <span class=i>(work in progress)</span>.",
+      links: ["https://github.com/JBarone90/portfolio"],
     },
     {
       id: 2,
-      name: "Project 2",
-      image: "/images/zima-blue.jpg",
-      description: "This is a brief description of Project 2.",
-      links: ["https://linkto.project2.com", "https://github.com/project2"],
+      name: "Dashboard",
+      image: "/images/dashboard.png",
+      abstract: "This is a brief description of Dashboard.",
+      description: "This is a brief description of Dashboard.",
+      readMore: "Read more",
+      links: ["https://linkto.dashboard.com"],
     },
     // Add more projects here
   ];
@@ -41,7 +48,7 @@
   <!-- Intro Section -->
   <section
     id="IntroPage"
-    class="bg-white-20 flex flex-column items-center mv6-l mv5-ns"
+    class="flex flex-column items-center mv6-l mv5-ns"
   >
     <div class="flex flex-column items-center-ns items-start-l pb5-l pb4-ns">
       <h2 class="f3 f2-ns f1-l fw6 w-100">
@@ -69,7 +76,7 @@
 
     <div class="flex justify-center justify-end-l w-100">
       <img
-        src="/images/profile.jpg"
+        src="/images/profile_no_background.png"
         alt="Profile"
         class="object-fit-cover z-2 h-70"
       />
@@ -77,21 +84,20 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="Projects" class="bg-white-60 flex flex-column mv6-l mv5-ns">
+  <section id="Projects" class="flex flex-column mv6-l mv5-ns">
     <div class="flex flex-column mv2-ns mv5-l tc">
       <p class="poppins">
-        <span class="f1-l f1-m f3-ns poppins light-red">Portfolio</span>
+        <span class="f1-l f1-m f3-ns poppins">Portfolio</span>
       </p>
       <!-- Use Grid to render project cards -->
-      <ProjectGrid {projects} {openProject} />
+      <div class="flex justify-center">
+        <ProjectGrid {projects} {openProject} />
+      </div>
     </div>
   </section>
 
   <!-- Popover Section (Modal) -->
   {#if selectedProject}
-    <!-- svelte-ignore a11y_click_events_have_key_events -->
-    <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
     <div
       class="fixed top-0 left-0 w-100 h-100 bg-black-70 flex items-center justify-center z-999"
       onclick={closeProject}
@@ -107,7 +113,7 @@
         tabindex="0"
       >
         <button
-          class="absolute top-0 right-0 mt2 mr2 pa2 bg-near-white br-pill pointer grow"
+          class="absolute top-0 right-0 mt2 mr2 pa1 br-pill bw0 bg-transparent pointer grow"
           onclick={closeProject}
           onkeydown={(e) => e.key === "Enter" && closeProject()}
           aria-label="Close project details"
@@ -115,21 +121,41 @@
         >
           ✕
         </button>
-
-        <h3 id="project-title" class="f4 poppins light-red mb3">
+        <div class="relative mb3 mr2">
+          <img
+            src={selectedProject.image}
+            alt={selectedProject.name}
+            class="w-100 h-100 br3 object-cover"
+          />
+        </div>
+        <h3 id="project-title" class="f3 poppins dark-gray tc mb4">
           {selectedProject.name}
         </h3>
-        <p class="f6 lh-copy mb3">{selectedProject.description}</p>
+        <h4 class="poppins dark-gray tc mb3">
+          {@html selectedProject.abstract}
+        </h4>
+        <div class="mt5">
+          <h5 class="f6 dark-gray mb1">Description</h5>
+          <hr class="b--light-gray w-100 mb2" />
+          <p class="f6 poppins lh-copy dark-gray mb3">
+            {@html selectedProject.description}
+          </p>
+          <h5 class="f6 dark-gray mt4 mb1">Read More</h5>
+          <hr class="b--light-gray w-100 mb2" />
+          <p class="f6 poppins lh-copy dark-gray mb3">
+            {@html selectedProject.readMore}
+          </p>
+        </div>
 
         <!-- Links Section -->
         {#each selectedProject.links as link}
           <a
             href={link}
             target="_blank"
-            class="f6 link dim br2 ba ph3 pv2 mb2 dib black mr2"
+            class="f6 link dim black"
             rel="noopener noreferrer"
           >
-            {link}
+            <FontAwesomeIcon icon={faGithub} class="fa-3x" />
           </a>
         {/each}
       </div>
