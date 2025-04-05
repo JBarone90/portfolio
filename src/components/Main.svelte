@@ -3,6 +3,17 @@
   import ProjectGrid from "./ProjectGrid.svelte";
   import { faGithub } from "@fortawesome/free-brands-svg-icons";
   import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
+  import { onMount } from 'svelte';
+
+  let introContainer;
+
+  onMount(() => {
+    if (typeof particlesJS !== 'undefined') {
+      particlesJS.load('particles-js', '/assets/particles.json', function() {
+        console.log('Callback - particles.js config loaded for Intro section');
+      });
+    }
+  });
 
   const projects = [
     {
@@ -48,9 +59,13 @@
   <!-- Intro Section -->
   <section
     id="IntroPage"
-    class="flex flex-column items-center mv6-l mv5-ns"
+    class="flex flex-column items-center mv6-l mv5-ns relative"
   >
-    <div class="flex flex-column items-center-ns items-start-l pb5-l pb4-ns">
+    <div
+      id="particles-js"
+      class="absolute top-0 left-0 w-100 h-100 z-0 o-40"
+    ></div>
+    <div class="flex flex-column items-center-ns items-start-l pb5-l pb4-ns z-1">
       <h2 class="f3 f2-ns f1-l fw6 w-100">
         <span class="poppins light-red">Jacopo</span> Barone
         <br />
@@ -74,17 +89,17 @@
       </a>
     </div>
 
-    <div class="flex justify-center justify-end-l w-100">
+    <div class="flex justify-center justify-end-l justify-end-m w-80-l w-60-m">
       <img
         src="/images/profile_no_background.png"
         alt="Profile"
-        class="object-fit-cover z-2 h-70"
+        class="object-fit-cover"
       />
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="Projects" class="flex flex-column mv6-l mv5-ns">
+  <section id="Projects" class="bg-light-red flex flex-column mv6-l mv5-ns">
     <div class="flex flex-column mv2-ns mv5-l tc">
       <p class="poppins">
         <span class="f1-l f1-m f3-ns poppins">Portfolio</span>

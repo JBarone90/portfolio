@@ -40,20 +40,7 @@
     class="bg-near-black white h-100 w-100 ma0 pa0 relative"
     data-sveltekit-preload-data="hover"
   >
-    <!-- Particles as background -->
-    <div
-      id="particles-js"
-      class="absolute top-0 left-0 w-100 h-100 z-0 o-40"
-    ></div>
-
-    <!-- Main content above particles -->
+    <!-- Main content -->
     <div style="display: contents" class="relative z-1">%sveltekit.body%</div>
-
-    <!-- Load particles.js -->
-    <script>
-      particlesJS.load("particles-js", "/assets/particles.json", function () {
-        console.log("Callback - particles.js config loaded");
-      });
-    </script>
   </body>
 </html>
