@@ -12,8 +12,7 @@
 </script>
 
 <div
-  class="relative flex flex-column mw6 mw8-ns center
- w-100 w-100-l f6-ns f5-l min-vh-100 ph2-ns ph4-l "
+  class="relative flex flex-column w-100 min-vh-100"
 >
   <div
     class={"grow dib fixed bottom-0 w-auto flex pa3 z-999 " +

@@ -9,21 +9,21 @@
 </script>
 
 <header
-  class={"sticky z-999 top-0 pl3 pr3 flex items-center justify-between w-100 " +
+  class={"sticky z-999 pl3 pr3 flex items-center justify-between w-100 " +
     (y > 0
-      ? "pv2 bg-near-black b--near-black"
-      : "pv3 bg-transparent b--transparent")}
+      ? "bg-lightest-blue b--lightest-blue"
+      : "bg-transparent b--transparent")}
 >
   <h1 class="fw5 f2-l f3-m f4-ns f5">
     <b class="fw7 poppins">Jacopo</b> Barone
   </h1>
-  <div class="flex items-center ml2 f4-l f5-m f6-ns f7">
+  <div class="flex items-center f4-l f5-m f6-ns f7">
     {#each tabs as tab, index}
       <a
         href={tab.link}
         class="dim ml2 mr2 transition duration-200 no-underline"
       >
-        <p class="white">{tab.name}</p>
+        <p class="black b">{tab.name}</p>
       </a>
     {/each}
   </div>

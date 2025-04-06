@@ -3,14 +3,14 @@
   import ProjectGrid from "./ProjectGrid.svelte";
   import { faGithub } from "@fortawesome/free-brands-svg-icons";
   import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
-  import { onMount } from 'svelte';
+  import { onMount } from "svelte";
 
   let introContainer;
 
   onMount(() => {
-    if (typeof particlesJS !== 'undefined') {
-      particlesJS.load('particles-js', '/assets/particles.json', function() {
-        console.log('Callback - particles.js config loaded for Intro section');
+    if (typeof particlesJS !== "undefined") {
+      particlesJS.load("particles-js", "/assets/particles.json", function () {
+        console.log("Callback - particles.js config loaded for Intro section");
       });
     }
   });
@@ -23,7 +23,8 @@
       abstract: "A modern, responsive portfolio website built with SvelteKit",
       description:
         "While it might seem unusual to feature the portfolio itself as a project, it demonstrates my ability to independently design and build a front end from scratch. The site is built with <a class='light-red no-underline dim' href='https://svelte.dev/' target='_blank' rel='noopener noreferrer'>Svelte</a>, styled using <a class='light-red no-underline dim' href='https://tachyons.io/' target='_blank' rel='noopener noreferrer'>Tachyons CSS</a>, and enhanced with a sprinkle of <a class='light-red no-underline dim' href='https://greensock.com/gsap/' target='_blank' rel='noopener noreferrer'>GSAP</a> animations.",
-      readMore: "If you want to see the code, check out my GitHub profile!<br /> I will try to document my learning process on a blog article <span class=i>(work in progress)</span>.",
+      readMore:
+        "If you want to see the code, check out my GitHub profile!<br /> I will try to document my learning process on a blog article <span class=i>(work in progress)</span>.",
       links: ["https://github.com/JBarone90/portfolio"],
     },
     {
@@ -55,17 +56,19 @@
   }
 </script>
 
-<main class="flex flex-column pa2-l pa4-m mt2-l mt4-m">
+<main class="flex flex-column w-100">
   <!-- Intro Section -->
   <section
     id="IntroPage"
-    class="flex flex-column items-center mv6-l mv5-ns relative"
+    class="bg-black white flex flex-column items-center relative pa2-l pa4-m w-100"
   >
     <div
       id="particles-js"
-      class="absolute top-0 left-0 w-100 h-100 z-0 o-40"
+      class="absolute top-0 left-0 w-100 h-100 z-0 o-90"
     ></div>
-    <div class="flex flex-column items-center-ns items-start-l pb5-l pb4-ns z-1">
+    <div
+      class="flex flex-column items-center-ns items-start-l pb5-l pb4-ns z-1"
+    >
       <h2 class="f3 f2-ns f1-l fw6 w-100">
         <span class="poppins light-red">Jacopo</span> Barone
         <br />
@@ -78,29 +81,33 @@
         My <span class="light-red"> favorite tech</span> includes JavaScript (NEXT.JS
         or SvelteKit), TailwindCSS, Node.js + Express.js & PostgreSQL or Firebase/Firestore!
       </p>
-      <a
-        class="RedShadow mv3-l mv3-ns f5-ns f4-m poppins
-        overflow-hidden pa2 ph3 br-pill bg-white near-black hover-bg-washed-yellow
-         w-40-ns w-20-l no-underline"
-        href="https://www.linkedin.com/in/baronej/"
-        target="_blank"
-      >
-        <h4 class="relative tc z-1">Get in touch &rarr;</h4>
-      </a>
+  <a
+    class="RedShadow mv3-l mv3-ns poppins
+     br-pill bg-white near-black hover-bg-light-red
+     w-20 w-20-ns w-20-m w-20-l mw5 no-underline"
+    href="https://www.linkedin.com/in/baronej/"
+    target="_blank"
+  >
+    <h4 class="relative tc f5 f5-ns f5-m f3-l z-1">Get in touch &rarr;</h4>
+  </a>
     </div>
 
-    <div class="flex justify-center justify-end-l justify-end-m w-80-l w-60-m">
+    <!-- <div class="flex justify-center justify-end-l justify-end-m w-80-l w-60-m">
       <img
         src="/images/profile_no_background.png"
         alt="Profile"
         class="object-fit-cover"
       />
-    </div>
+    </div> -->
   </section>
 
   <!-- Projects Section -->
-  <section id="Projects" class="bg-light-red flex flex-column mv6-l mv5-ns">
-    <div class="flex flex-column mv2-ns mv5-l tc">
+  <section
+    id="Projects"
+    class="flex flex-column mv6-l mv5-ns w-100"
+    style="background-color: #F7D488"
+  >
+    <div class="flex flex-column mv2-ns mv5-l tc pa2-l pa4-m">
       <p class="poppins">
         <span class="f1-l f1-m f3-ns poppins">Portfolio</span>
       </p>
